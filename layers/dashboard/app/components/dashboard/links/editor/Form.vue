@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { AnyFieldApi, Link, LinkFormData } from '@/types'
-import { LinkSchema, nanoid } from '#shared/schemas/link'
+import { createLinkSchema, nanoid, resolveUrlMaxLength } from '#shared/schemas/link'
 import { useForm } from '@tanstack/vue-form'
 import { Shuffle, Sparkles } from 'lucide-vue-next'
 import { toast } from 'vue-sonner'
@@ -17,10 +17,14 @@ const emit = defineEmits<{
 
 const { t } = useI18n()
 
-const urlValidator = LinkSchema.shape.url
-const slugValidator = LinkSchema.shape.slug
+const { previewMode, urlMaxLength: runtimeUrlMaxLength } = useRuntimeConfig().public
+const urlMaxLength = resolveUrlMaxLength(runtimeUrlMaxLength)
+const linkSchema = createLinkSchema(urlMaxLength)
+
+const urlValidator = linkSchema.shape.url
+const slugValidator = linkSchema.shape.slug
 const commentValidator = z.string().max(500).optional()
-const optionalUrlValidator = z.string().trim().url().max(2048).optional().or(z.literal(''))
+const optionalUrlValidator = z.string().trim().url().max(urlMaxLength).optional().or(z.literal(''))
 
 const generateSlug = nanoid()
 
@@ -139,8 +143,6 @@ async function aiSlug() {
 }
 
 const currentSlug = form.useStore(state => state.values.slug || '')
-
-const { previewMode } = useRuntimeConfig().public
 
 defineExpose({ randomSlug })
 </script>

@@ -1,5 +1,5 @@
 import type { z } from 'zod'
-import { LinkSchema } from '#shared/schemas/link'
+import { createLinkSchema, resolveUrlMaxLength } from '#shared/schemas/link'
 
 defineRouteMeta({
   openAPI: {
@@ -41,9 +41,11 @@ export default eventHandler(async (event) => {
       statusText: 'Preview mode cannot edit links.',
     })
   }
-  const link = await readValidatedBody(event, LinkSchema.parse)
+  const urlMaxLength = resolveUrlMaxLength(useRuntimeConfig(event).public.urlMaxLength)
+  const linkSchema = createLinkSchema(urlMaxLength)
+  const link = await readValidatedBody(event, linkSchema.parse)
 
-  const existingLink: z.infer<typeof LinkSchema> | null = await getLink(event, link.slug)
+  const existingLink: z.infer<typeof linkSchema> | null = await getLink(event, link.slug)
   if (!existingLink) {
     throw createError({
       status: 404,

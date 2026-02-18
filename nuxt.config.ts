@@ -34,10 +34,12 @@ export default defineNuxtConfig({
     disableBotAccessLog: false,
     disableAutoBackup: false,
     notFoundRedirect: '',
+    urlMaxLength: '2048',
     public: {
       previewMode: '',
       slugDefaultLength: '6',
       kvBatchLimit: '50',
+      urlMaxLength: '2048',
     },
   },
   routeRules: {
