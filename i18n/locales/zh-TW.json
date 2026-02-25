@@ -54,7 +54,8 @@
     "links": "連結",
     "analysis": "分析",
     "realtime": "即時",
-    "migrate": "匯入/匯出"
+    "migrate": "匯入/匯出",
+    "settings": "設定"
   },
   "sidebar": {
     "subtitle": "縮網址服務",
@@ -301,6 +302,16 @@
         "no_links": "檔案中找不到連結",
         "parse_error": "檔案解析失敗"
       }
+    }
+  },
+  "settings": {
+    "url_max_length": {
+      "title": "URL 最大長度",
+      "description": "設定目標 URL 的最大允許長度",
+      "label": "最大字元數",
+      "hint": "預設: {default} 字元。適用於 URL、Apple Store URL 和 Google Play URL 欄位。",
+      "save_success": "URL 最大長度更新成功",
+      "save_failed": "URL 最大長度更新失敗"
     }
   }
 }

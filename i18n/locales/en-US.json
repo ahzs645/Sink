@@ -54,7 +54,8 @@
     "links": "Links",
     "analysis": "Analysis",
     "realtime": "Realtime",
-    "migrate": "Import/Export"
+    "migrate": "Import/Export",
+    "settings": "Settings"
   },
   "sidebar": {
     "subtitle": "Link Shortener",
@@ -301,6 +302,16 @@
         "no_links": "No links found in file",
         "parse_error": "Failed to parse file"
       }
+    }
+  },
+  "settings": {
+    "url_max_length": {
+      "title": "URL Max Length",
+      "description": "Configure the maximum allowed length for destination URLs",
+      "label": "Max characters",
+      "hint": "Default: {default} characters. Applies to URL, Apple Store URL, and Google Play URL fields.",
+      "save_success": "URL max length updated successfully",
+      "save_failed": "Failed to update URL max length"
     }
   }
 }

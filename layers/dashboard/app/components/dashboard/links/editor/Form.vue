@@ -8,6 +8,7 @@ import { z } from 'zod'
 
 const props = defineProps<{
   link: Partial<Link>
+  urlMaxLength?: number
   isEdit: boolean
 }>()
 
@@ -18,7 +19,7 @@ const emit = defineEmits<{
 const { t } = useI18n()
 
 const { previewMode, urlMaxLength: runtimeUrlMaxLength } = useRuntimeConfig().public
-const urlMaxLength = resolveUrlMaxLength(runtimeUrlMaxLength)
+const urlMaxLength = props.urlMaxLength ?? resolveUrlMaxLength(runtimeUrlMaxLength)
 const linkSchema = createLinkSchema(urlMaxLength)
 
 const urlValidator = linkSchema.shape.url

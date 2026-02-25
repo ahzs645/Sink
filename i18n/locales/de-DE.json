@@ -54,7 +54,8 @@
     "links": "Links",
     "analysis": "Analyse",
     "realtime": "Echtzeit",
-    "migrate": "Import/Export"
+    "migrate": "Import/Export",
+    "settings": "Einstellungen"
   },
   "sidebar": {
     "subtitle": "Link-Verkürzer",
@@ -301,6 +302,16 @@
         "no_links": "Keine Links in der Datei gefunden",
         "parse_error": "Datei konnte nicht analysiert werden"
       }
+    }
+  },
+  "settings": {
+    "url_max_length": {
+      "title": "Maximale URL-Länge",
+      "description": "Konfigurieren Sie die maximal zulässige Länge für Ziel-URLs",
+      "label": "Maximale Zeichen",
+      "hint": "Standard: {default} Zeichen. Gilt für URL-, Apple Store URL- und Google Play URL-Felder.",
+      "save_success": "Maximale URL-Länge erfolgreich aktualisiert",
+      "save_failed": "Aktualisierung der maximalen URL-Länge fehlgeschlagen"
     }
   }
 }

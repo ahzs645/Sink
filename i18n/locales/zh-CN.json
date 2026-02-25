@@ -54,7 +54,8 @@
     "links": "链接",
     "analysis": "分析",
     "realtime": "实时",
-    "migrate": "导入/导出"
+    "migrate": "导入/导出",
+    "settings": "设置"
   },
   "sidebar": {
     "subtitle": "短链接服务",
@@ -301,6 +302,16 @@
         "no_links": "文件中未找到链接",
         "parse_error": "文件解析失败"
       }
+    }
+  },
+  "settings": {
+    "url_max_length": {
+      "title": "URL 最大长度",
+      "description": "配置目标 URL 的最大允许长度",
+      "label": "最大字符数",
+      "hint": "默认: {default} 字符。适用于 URL、Apple Store URL 和 Google Play URL 字段。",
+      "save_success": "URL 最大长度更新成功",
+      "save_failed": "URL 最大长度更新失败"
     }
   }
 }

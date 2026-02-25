@@ -1,5 +1,5 @@
 import type { z } from 'zod'
-import { createLinkSchema, resolveUrlMaxLength } from '#shared/schemas/link'
+import { createLinkSchema } from '#shared/schemas/link'
 
 defineRouteMeta({
   openAPI: {
@@ -41,7 +41,7 @@ export default eventHandler(async (event) => {
       statusText: 'Preview mode cannot edit links.',
     })
   }
-  const urlMaxLength = resolveUrlMaxLength(useRuntimeConfig(event).public.urlMaxLength)
+  const urlMaxLength = await getEffectiveUrlMaxLength(event)
   const linkSchema = createLinkSchema(urlMaxLength)
   const link = await readValidatedBody(event, linkSchema.parse)
 
