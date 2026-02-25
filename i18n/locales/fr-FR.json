@@ -54,7 +54,8 @@
     "links": "Liens",
     "analysis": "Statistiques",
     "realtime": "Realtime",
-    "migrate": "Import/Export"
+    "migrate": "Import/Export",
+    "settings": "Paramètres"
   },
   "sidebar": {
     "subtitle": "Raccourcisseur de liens",
@@ -301,6 +302,16 @@
         "no_links": "Aucun lien trouvé dans le fichier",
         "parse_error": "Échec de l'analyse du fichier"
       }
+    }
+  },
+  "settings": {
+    "url_max_length": {
+      "title": "Longueur maximale de l'URL",
+      "description": "Configurer la longueur maximale autorisée pour les URLs de destination",
+      "label": "Caractères maximum",
+      "hint": "Par défaut : {default} caractères. S'applique aux champs URL, URL Apple Store et URL Google Play.",
+      "save_success": "Longueur maximale de l'URL mise à jour avec succès",
+      "save_failed": "Échec de la mise à jour de la longueur maximale de l'URL"
     }
   }
 }

@@ -32,6 +32,12 @@ const platformItems = computed<NavItem[]>(() => [
 
 const settingsItems = computed<NavItem[]>(() => [
   {
+    title: 'nav.settings',
+    url: '/dashboard/settings',
+    icon: DASHBOARD_ROUTES.settings.icon,
+    isActive: isActive('settings'),
+  },
+  {
     title: 'nav.migrate',
     url: '/dashboard/migrate',
     icon: DASHBOARD_ROUTES.migrate.icon,

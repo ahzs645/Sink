@@ -1,4 +1,4 @@
-import { createLinkSchema, resolveUrlMaxLength } from '#shared/schemas/link'
+import { createLinkSchema } from '#shared/schemas/link'
 
 defineRouteMeta({
   openAPI: {
@@ -44,7 +44,7 @@ defineRouteMeta({
 })
 
 export default eventHandler(async (event) => {
-  const urlMaxLength = resolveUrlMaxLength(useRuntimeConfig(event).public.urlMaxLength)
+  const urlMaxLength = await getEffectiveUrlMaxLength(event)
   const linkSchema = createLinkSchema(urlMaxLength)
   const link = await readValidatedBody(event, linkSchema.parse)
 

@@ -1,6 +1,6 @@
 import type { Component } from 'vue'
 import { useRoute } from '#imports'
-import { Activity, ChartArea, FolderSync, Link } from 'lucide-vue-next'
+import { Activity, ChartArea, FolderSync, Link, Settings } from 'lucide-vue-next'
 import { computed } from 'vue'
 
 export interface DashboardRouteConfig {
@@ -34,6 +34,11 @@ export const DASHBOARD_ROUTES = {
     paths: ['/dashboard/migrate'],
     titleKey: 'nav.migrate',
     icon: FolderSync,
+  },
+  settings: {
+    paths: ['/dashboard/settings'],
+    titleKey: 'nav.settings',
+    icon: Settings,
   },
 } as const satisfies Record<string, DashboardRouteConfig>
 

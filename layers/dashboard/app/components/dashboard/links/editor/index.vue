@@ -9,6 +9,7 @@ const props = withDefaults(defineProps<{
 
 const { t } = useI18n()
 const linksStore = useDashboardLinksStore()
+const { data: settings } = await useAsyncData('settings', () => useAPI<{ urlMaxLength: number }>('/api/settings'))
 const dialogOpen = ref(false)
 const isEdit = !!props.link.id
 
@@ -48,6 +49,7 @@ function handleClose() {
     <DashboardLinksEditorForm
       ref="formRef"
       :link="link"
+      :url-max-length="settings?.urlMaxLength"
       :is-edit="isEdit"
       @success="handleSuccess"
     />
