@@ -5,6 +5,7 @@ const { slugRegex } = useAppConfig()
 
 const slugDefaultLength = +useRuntimeConfig().public.slugDefaultLength
 export const DEFAULT_URL_MAX_LENGTH = 2048
+export const SERVER_URL_MAX_LENGTH = 100_000
 
 export const nanoid = (length: number = slugDefaultLength) => customAlphabet('23456789abcdefghjkmnpqrstuvwxyz', length)
 
@@ -39,7 +40,7 @@ export function createLinkSchema(urlMaxLength: number = DEFAULT_URL_MAX_LENGTH) 
   })
 }
 
-export const LinkSchema = createLinkSchema()
+export const LinkSchema = createLinkSchema(SERVER_URL_MAX_LENGTH)
 
 export type Link = z.infer<typeof LinkSchema>
 
